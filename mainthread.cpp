@@ -61,11 +61,12 @@ void mainThread::run(){
               QImage img= QImage((const unsigned char*)(barCodeThread::Frame.data),
               barCodeThread::Frame.cols,barCodeThread::Frame.rows,QImage::Format_RGB888);
               emit sendImage(img,barcode);
-            }
+            }else{
           QImage img2= QImage((const unsigned char*)(barCodeThread::Frame.data),
           barCodeThread::Frame.cols,barCodeThread::Frame.rows,QImage::Format_RGB888);
           emit sendVideoImage(img2);
-          if (waitKey(0) == 27 || MainWindow::terminateThread)  return;
+          }
+          if (MainWindow::terminateThread)  return;
           oldBarcode=barcode;
           barcode.clear();
           Sleep(waitms);

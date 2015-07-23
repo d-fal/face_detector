@@ -8,14 +8,16 @@
 #include <QDateTime>
 #include "networkmanagement.h"
 #include "uploadimage.h"
+#include <ctime>
 
+using namespace std;
 uploadImage::uploadImage(QObject *parent) :
     QObject(parent)
 {
 }
 
-void uploadImage::uploadFile(std::string filepath,std::string label, int Authencity){
-    std::cout<<"Syncing... "<<Authencity<<std::endl;
+bool uploadImage::uploadFile(std::string filepath,std::string label, int Authencity){
+
     QEventLoop eventLoop;
     QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
 
@@ -38,12 +40,22 @@ void uploadImage::uploadFile(std::string filepath,std::string label, int Authenc
     textPart4.setHeader(QNetworkRequest::ContentDispositionHeader,
                        QVariant("form-data; name=\"systemCode\""));
     textPart4.setBody(networkManagement::systemCode.toUtf8());
+    //
+     time_t now = time(0);
+     tm *ltm = localtime(&now);
 
-    //textPart5.setHeader(QNetworkRequest::ContentDispositionHeader,
-    //                    QVariant("form-data; name=\"currentTime\""));
+       // print various components of tm structure.
+       QString dateTime;
+       dateTime=QString::number(1900 + ltm->tm_year) + "-" +QString::number(1 + ltm->tm_mon)+
+               "-"+QString::number(ltm->tm_mday)+" "+
+               QString::number(ltm->tm_hour)+":"+QString::number(ltm->tm_min)
+               +":"+QString::number(ltm->tm_sec);
+
+    textPart5.setHeader(QNetworkRequest::ContentDispositionHeader,
+                        QVariant("form-data; name=\"currentTime\""));
     //QString just="12-03-2015 00:01:29";
 
-    //textPart5.setBody(just.toUtf8());
+    textPart5.setBody(dateTime.toUtf8());
 
     QHttpPart imagePart;
     imagePart.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("image/png"));
@@ -59,7 +71,7 @@ void uploadImage::uploadFile(std::string filepath,std::string label, int Authenc
     multiPart->append(textPart3);
     multiPart->append(imagePart);
     multiPart->append(textPart4);
-   // multiPart->append(textPart5);
+    multiPart->append(textPart5);
 
     // "quit()" the event-loop, when the network request "finished()"
     QNetworkAccessManager mgr;
@@ -73,25 +85,20 @@ void uploadImage::uploadFile(std::string filepath,std::string label, int Authenc
     if (reply->error() == QNetworkReply::NoError) {
         //success
         QString strx=reply->readAll();
-      qDebug()<<strx;
+        qDebug()<<strx;
 
-        QJsonDocument jsonResponse = QJsonDocument::fromJson(strx.toUtf8());
-        QJsonObject jsonObject = jsonResponse.object();
-
-
-
-     //   qDebug()<<propertyKeys;
+         //   qDebug()<<propertyKeys;
         delete reply;
+        return true;
     }
     else {
         //failure
         qDebug() << "Failure" <<reply->errorString();
         delete reply;
+        return false;
     }
 
 }
-
-
 bool uploadImage::syncRemoteID(){
     QEventLoop eventLoop;
     QHttpMultiPart *multiPart = new QHttpMultiPart(QHttpMultiPart::FormDataType);
@@ -100,7 +107,8 @@ bool uploadImage::syncRemoteID(){
     QHttpPart textPart2;
     textPart2.setHeader(QNetworkRequest::ContentDispositionHeader,
                        QVariant("form-data; name=\"syncRemotes\""));
-    QString Label="\""+MainWindow::foundedCode+"\","+QString::number(mainThread::remoteID)+"";
+    QString Label="\""+MainWindow::foundedCode+"\","+QString::number(mainThread::remoteID)+",\""+
+            networkManagement::systemCode+"\" ";
     textPart2.setBody(Label.toLatin1());
 
     multiPart->append(textPart2);

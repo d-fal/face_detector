@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>754</width>
-    <height>435</height>
+    <height>425</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <x>20</x>
      <y>10</y>
      <width>721</width>
-     <height>341</height>
+     <height>401</height>
     </rect>
    </property>
    <property name="title">
@@ -29,48 +29,48 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>168</y>
+      <y>210</y>
       <width>211</width>
       <height>161</height>
      </rect>
     </property>
     <property name="text">
-     <string>Cam0</string>
+     <string>.</string>
     </property>
    </widget>
    <widget class="QLabel" name="camera_1">
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>168</y>
+      <y>210</y>
       <width>201</width>
       <height>161</height>
      </rect>
     </property>
     <property name="text">
-     <string>Cam1</string>
+     <string>..</string>
     </property>
    </widget>
    <widget class="QLabel" name="camera_2">
     <property name="geometry">
      <rect>
       <x>470</x>
-      <y>168</y>
+      <y>210</y>
       <width>221</width>
       <height>161</height>
      </rect>
     </property>
     <property name="text">
-     <string>Cam2</string>
+     <string>...</string>
     </property>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>50</y>
+      <x>20</x>
+      <y>20</y>
       <width>191</width>
-      <height>80</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="title">
@@ -89,7 +89,7 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Scanner</string>
+         <string>Scanner ID</string>
         </property>
        </widget>
       </item>
@@ -102,10 +102,10 @@
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>50</y>
+      <x>20</x>
+      <y>90</y>
       <width>191</width>
-      <height>80</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="title">
@@ -124,7 +124,7 @@
       <item>
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>Scanner</string>
+         <string>Camera ID</string>
         </property>
        </widget>
       </item>
@@ -138,7 +138,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>140</y>
+      <y>180</y>
       <width>221</width>
       <height>16</height>
      </rect>
@@ -151,7 +151,7 @@
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>140</y>
+      <y>180</y>
       <width>221</width>
       <height>16</height>
      </rect>
@@ -164,7 +164,7 @@
     <property name="geometry">
      <rect>
       <x>480</x>
-      <y>140</y>
+      <y>180</y>
       <width>221</width>
       <height>16</height>
      </rect>
@@ -173,33 +173,50 @@
      <string>Camera 2</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="cancelBtn">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>30</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cancel</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="okBtn">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>30</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ok</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>20</y>
+      <width>251</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>In the bellow images you can find the camera IDs.
+Assign an ID to Scanner and Camera fields.</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QPushButton" name="okBtn">
-   <property name="geometry">
-    <rect>
-     <x>640</x>
-     <y>370</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Ok</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="cancelBtn">
-   <property name="geometry">
-    <rect>
-     <x>540</x>
-     <y>370</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Cancel</string>
-   </property>
-  </widget>
+  <zorder>groupBox</zorder>
+  <zorder>camera_2</zorder>
+  <zorder>camLabel_3</zorder>
  </widget>
  <resources/>
  <connections>

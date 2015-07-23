@@ -13,7 +13,7 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
+    mainwindow.cpp \
     qrscanner.cpp \
     mainthread.cpp \
     facedetector2.cpp \
@@ -59,6 +59,8 @@ LIBS += -LC:\\OpenCV\\myBuild\\install\\x64\\mingw\\lib \
     libopencv_contrib249d.dll
 
 OTHER_FILES += \
-    myapp.rc\
+    myapp.rc
+RC_FILE = myapp.rc\
 
-RC_FILE = myapp.rc
+RESOURCES += \
+    repository.qrc

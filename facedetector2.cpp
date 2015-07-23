@@ -39,11 +39,11 @@ static void read_csv(const string& filenamex, vector<Mat>& images, vector<int>& 
 faceDetector2::faceDetector2(QObject *parent) :  QThread(parent){
 
     face_founded=false;
-    face_cascade_name = "C:/OpenCV/myBuild/opencv/opencv/data/haarcascades/haarcascade_frontalface_alt.xml";
+    face_cascade_name = (MainWindow::imgPath+"\\libs\\haarcascade_frontalface_alt.xml").toStdString();
     window_name = "Capture - Face detection";
     filenumber; // Number of file to be saved
-    fn_haar = "C:/OpenCV/myBuild/opencv/opencv/data/haarcascades/haarcascade_frontalface_default.xml";
-    fn_csv = "myData.csv";
+    fn_haar = (MainWindow::imgPath+"\\libs\\haarcascade_frontalface_default.xml").toStdString();
+    fn_csv =(MainWindow::imgPath+"\\"+"myData.csv").toStdString();
     if (!face_cascade.load(face_cascade_name))
     {
         printf("--(!)Error loading\n");
@@ -79,7 +79,7 @@ void faceDetector2::run(){
 
 void faceDetector2::recognizeFace(Mat &Frame){
 
-    ofstream new_file("myData.csv");
+    ofstream new_file((MainWindow::imgPath+"\\"+"myData.csv").toStdString().c_str());
     QString fileContent=
              MainWindow::imgPath+"\\s1\\1.pgm;0\n"
             +MainWindow::imgPath+"\\s1\\2.pgm;0\n"+MainWindow::imgPath+"\\s1\\3.pgm;0\n"
@@ -147,9 +147,13 @@ void faceDetector2::recognizeFace(Mat &Frame){
         emit authentication(false);
     }
     uploadImage *upload = new uploadImage;
-    QString filePath=MainWindow::foundedCode+".png";
-    upload->uploadFile(filePath.toStdString(),MainWindow::foundedCode.toStdString(),
-                       (int)(prediction==originalClass));
+    QString filePath=MainWindow::imgPath+"\\"+MainWindow::foundedCode+".png";
+    if(upload->uploadFile(filePath.toStdString(),MainWindow::foundedCode.toStdString(),
+                       (int)(prediction==originalClass))){
+        emit sysOnline(true);
+    }else{
+        emit sysOnline(false);
+    }
     cout<<"Prediction: "<<prediction<<" , Confidence: "<<confidence<<endl;
 
     emit sendOwnerName();
@@ -274,7 +278,7 @@ void faceDetector2::detectAndDisplay(){
 
 
         imwrite(filename.toStdString(),gray);
-        emit sendImage(img,MainWindow::foundedCode);
+      //  emit sendImage(img,MainWindow::foundedCode);
 
         emit sendCropped(filename);
 

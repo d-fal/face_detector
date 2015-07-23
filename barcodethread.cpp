@@ -26,7 +26,7 @@ void barCodeThread::run(){
 
           if(!Frame.empty()){
             normalize(Frame ,Frame,0,255,NORM_MINMAX, CV_8UC3);
-            cvtColor(Frame,Frame,CV_BGR2RGB);
+            //cvtColor(Frame,Frame,CV_BGR2RGB);
           //qr->qrReader(Frame,barcode);
   //cout<<barcode.toStdString()<<endl;
 

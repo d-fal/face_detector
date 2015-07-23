@@ -36,6 +36,7 @@ signals:
     void sendOwnerName();
     void authentication(bool);
     void isFaceFounded(bool);
+    void sysOnline(bool);
 public slots:
 
 };

@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>repository/networkicon.png</file>
+        <file>repository/face1.png</file>
+        <file>repository/female-face.png</file>
+        <file>repository/male-face.png</file>
+        <file>repository/Blank-Face-Person-Icon.png</file>
+        <file>repository/delete-icon.png</file>
+        <file>repository/icon-sorority-retakes.png</file>
+        <file>repository/user_remove.png</file>
+        <file>repository/play.png</file>
+        <file>repository/offline.png</file>
+        <file>repository/online.png</file>
+        <file>repository/zuck.png</file>
+    </qresource>
+    <qresource prefix="/sounds">
+        <file>repository/sounds/notify.wav</file>
+        <file>repository/sounds/shutter.wav</file>
+        <file>repository/sounds/Speech Off.wav</file>
+        <file>repository/sounds/Speech On.wav</file>
+    </qresource>
+    <qresource prefix="/libs">
+        <file>repository/libs/haarcascade_frontalcatface.xml</file>
+        <file>repository/libs/haarcascade_frontalface_default.xml</file>
+    </qresource>
+</RCC>

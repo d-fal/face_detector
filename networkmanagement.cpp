@@ -3,6 +3,8 @@
 #include "mainwindow.h"
 #include "uploadimage.h"
 #include <QInputDialog>
+
+
 QString networkManagement::systemCode;
 bool networkManagement::isGenuine;
 
@@ -25,6 +27,7 @@ networkManagement::networkManagement(QWidget *parent) :
 
 networkManagement::~networkManagement()
 {
+
     delete ui;
 }
 
@@ -37,6 +40,15 @@ void networkManagement::on_connectionTest_clicked()
         msgBox.exec();
         QSettings settings("Cyber 7", "Face Recognizer");
         settings.setValue("Server",MainWindow::serverAddress);
+        this->close();
+
+    }else{
+        QMessageBox msgBox;
+        msgBox.setText("Oops!\nyou are not connected!\n");
+        msgBox.exec();
+        QSettings settings("Cyber 7", "Face Recognizer");
+        settings.setValue("Server",MainWindow::serverAddress);
+
 
     }
 

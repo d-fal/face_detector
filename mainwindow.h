@@ -9,6 +9,7 @@
 #include <QDesktopWidget>
 #include <QGridLayout>
 #include <QPainter>
+#include <QTimer>
 
 #include <QImage>
 #include <QSound>
@@ -69,7 +70,7 @@ private:
 
     private slots:
     void readingFinished();
-    void on_pushButton_clicked();
+
     void showImage(QImage img, QString code);
     void showCropped(QString address);
 
@@ -83,18 +84,22 @@ private:
 
     void on_forget_person_clicked();
 
-    void on_pushButton_5_clicked();
     void openCameraSettings();
     void openNetworkSettings();
     void activateThisDistro();
     void openUpCameras();
     void resetDefaultImages();
 
-    void on_pushButton_2_clicked();
-
     void on_handin_clicked();
 
     void on_takeback_clicked();
+
+    void on_stopBtn_clicked();
+
+    void on_startBtn_clicked();
+
+    void on_retakeBtn_clicked();
+    void sysOnline(bool stat);
 
 signals:
 

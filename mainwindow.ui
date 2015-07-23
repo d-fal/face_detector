@@ -7,20 +7,23 @@
     <x>0</x>
     <y>0</y>
     <width>887</width>
-    <height>587</height>
+    <height>546</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="header">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>510</x>
       <y>20</y>
-      <width>811</width>
-      <height>41</height>
+      <width>361</width>
+      <height>151</height>
      </rect>
     </property>
     <property name="font">
@@ -38,27 +41,17 @@
      <string>The Opening System...</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
-    <property name="geometry">
-     <rect>
-      <x>780</x>
-      <y>520</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Stop</string>
-    </property>
-   </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
       <x>500</x>
-      <y>90</y>
+      <y>180</y>
       <width>371</width>
-      <height>201</height>
+      <height>161</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f0f0f9</string>
     </property>
     <property name="title">
      <string>In memory</string>
@@ -68,7 +61,7 @@
       <rect>
        <x>10</x>
        <y>20</y>
-       <width>101</width>
+       <width>171</width>
        <height>28</height>
       </rect>
      </property>
@@ -85,13 +78,16 @@
        <x>20</x>
        <y>60</y>
        <width>141</width>
-       <height>111</height>
+       <height>91</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <pointsize>16</pointsize>
       </font>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
      </property>
      <property name="text">
       <string>Real Face</string>
@@ -100,10 +96,10 @@
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>200</x>
        <y>60</y>
-       <width>131</width>
-       <height>111</height>
+       <width>141</width>
+       <height>91</height>
       </rect>
      </property>
      <property name="font">
@@ -111,16 +107,19 @@
        <pointsize>16</pointsize>
       </font>
      </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
      <property name="text">
       <string>Detected</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_2">
+    <widget class="QPushButton" name="retakeBtn">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>190</x>
        <y>20</y>
-       <width>111</width>
+       <width>161</width>
        <height>28</height>
       </rect>
      </property>
@@ -128,14 +127,35 @@
       <string>Retake the photo</string>
      </property>
     </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>165</x>
+       <y>62</y>
+       <width>31</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>18</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>?</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>90</y>
+      <y>130</y>
       <width>471</width>
-      <height>421</height>
+      <height>381</height>
      </rect>
     </property>
     <property name="title">
@@ -147,7 +167,7 @@
        <x>10</x>
        <y>20</y>
        <width>451</width>
-       <height>391</height>
+       <height>331</height>
       </rect>
      </property>
      <property name="text">
@@ -155,27 +175,17 @@
      </property>
     </widget>
    </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>680</x>
-      <y>520</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Start </string>
-    </property>
-   </widget>
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
      <rect>
       <x>500</x>
-      <y>300</y>
+      <y>350</y>
       <width>371</width>
-      <height>211</height>
+      <height>161</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f2faf2</string>
     </property>
     <property name="title">
      <string>Status</string>
@@ -184,7 +194,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>40</y>
+       <y>20</y>
        <width>341</width>
        <height>51</height>
       </rect>
@@ -202,9 +212,9 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>100</y>
+       <y>80</y>
        <width>351</width>
-       <height>101</height>
+       <height>61</height>
       </rect>
      </property>
      <property name="title">
@@ -239,43 +249,14 @@
        <string>take back</string>
       </property>
      </widget>
-     <widget class="QLabel" name="remoteFound">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>40</y>
-        <width>331</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color:#22e</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="scaledContents">
-       <bool>false</bool>
-      </property>
-     </widget>
     </widget>
    </widget>
-   <widget class="QLabel" name="textBrowser">
+   <widget class="QLabel" name="foundedID">
     <property name="geometry">
      <rect>
-      <x>500</x>
-      <y>40</y>
-      <width>361</width>
+      <x>690</x>
+      <y>130</y>
+      <width>171</width>
       <height>41</height>
      </rect>
     </property>
@@ -287,6 +268,92 @@
     <property name="text">
      <string/>
     </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_5">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>70</y>
+      <width>471</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Process Control</string>
+    </property>
+    <widget class="QPushButton" name="startBtn">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>221</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Start </string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="stopBtn">
+     <property name="geometry">
+      <rect>
+       <x>232</x>
+       <y>20</y>
+       <width>231</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Stop</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="statBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>471</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#f3f3fa</string>
+    </property>
+    <property name="title">
+     <string>Status</string>
+    </property>
+    <widget class="QLabel" name="isOnline">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>..</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="isOnlineStat">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>20</y>
+       <width>401</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>
